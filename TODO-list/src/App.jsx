@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from "react";
 import "./App.css";
 import TaskItem from "./components/TaskItem";
@@ -26,7 +25,7 @@ function App() {
     if (formState.task && formState.taskAssignedTo) {
       setTasks((prevTasks) => [
         ...prevTasks,
-        { ...formState, id: Date.now() }, // Adding id for unique keys
+        { ...formState, id: Date.now() }, 
       ]);
 
       setFormState({
@@ -54,26 +53,13 @@ function App() {
       <div>
         <form onSubmit={handleSubmit}>
           <input
-            name="task"
-            type="text"
-            placeholder="Add Task"
-            value={formState.task}
-            onChange={handleChange}
-          />
+            name="task" type="text" placeholder="Add Task"value={formState.task} onChange={handleChange}/>
           <label>
             Completed:
             <input
-              name="completed"
-              type="checkbox"
-              checked={formState.completed}
-              onChange={handleChange}
-            />
+              name="completed"  type="checkbox" checked={formState.completed} onChange={handleChange} />
           </label>
-          <select
-            name="taskAssignedTo"
-            value={formState.taskAssignedTo}
-            onChange={handleChange}
-          >
+          <select name="taskAssignedTo" value={formState.taskAssignedTo}onChange={handleChange}>
             <option value="">Select Assignee</option>
             <option value="Bruce">Bruce</option>
             <option value="Barry">Barry</option>
@@ -87,8 +73,7 @@ function App() {
       <hr />
       {tasks.map((item) => (
         <TaskItem
-          key={item.id}
-          item={item}
+          key={item.id} item={item}
           onDelete={() => handleDelete(item.id)}
           onToggle={() => handleToggle(item.id)}
         />
