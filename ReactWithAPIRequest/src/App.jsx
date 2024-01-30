@@ -12,14 +12,14 @@ const App = () => {
     try {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts');
       if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error('Failed');
       }
 
       const result = await response.json();
       setData(result);
       setError(null);
     } catch (error) {
-      setError('An error occurred while fetching data');
+      setError("An error occurred while fetching data");
     } finally {
       setIsLoading(false);
     }
